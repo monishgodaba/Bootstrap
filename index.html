@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The ultimate gaming portal, explore top games, reviews, and live streams.">
+    <meta name="keywords" content="gaming, video games, esports, live stream, reviews">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Your Gaming Portal">
+    
+    <title>Epic Gaming Hub</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sixtyfour+Convergence&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- AOS Library CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: "Sixtyfour Convergence", sans-serif;
+            background-color: #3D1C51; /* Dark Lavender */
+            color: #fff;
+        }
+
+        /* Header Navigation */
+        header {
+            width: 100%;
+            z-index: 10;
+        }
+
+        .navbar {
+            background-color: rgba(61, 28, 81, 0.8); /* Dark Lavender with transparency */
+        }
+
+        .navbar-brand {
+            color: #D7798B !important; /* Pink */
+            font-size: 1.5rem;
+        }
+
+        .nav-link {
+            color: #D7798B !important; /* Pink */
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #fff !important; /* White on hover */
+        }
+
+        .btn-custom {
+            background-color: #D7798B; /* Pink Button */
+            color: #3D1C51; /* Dark Lavender */
+            border: none;
+            transition: all 0.3s ease;
+            margin-left: 10px; /* Gap between buttons */
+        }
+
+        .btn-custom:hover {
+            background-color: #8848B4; /* Purple Accent */
+            color: #fff;
+        }
+
+        /* Dropdown styles */
+        .dropdown-menu {
+            background-color: #3D1C51; /* Dark Lavender background */
+        }
+
+        .dropdown-item {
+            color: #D7798B; /* Pink */
+        }
+
+        .dropdown-item:hover {
+            background-color: #8848B4; /* Purple Accent */
+            color: #fff;
+        }
+
+        /* Hero Section with Background Image */
+        .hero-section {
+            background: url('images/your-halloween.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(61, 28, 81, 0.6); /* Dark Lavender with 60% opacity */
+            z-index: 1;
+        }
+
+        .hero-section h1, .hero-section p, .hero-section .btn-custom {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
+            font-size: 4rem;
+            text-shadow: 0 0 10px #D7798B; /* Pink Accent */
+        }
+
+        .hero-section p {
+            font-size: 1.5rem;
+        }
+
+        /* Content Sections */
+        .content-section {
+            display: none; /* Hide all sections by default */
+        }
+
+        .content-section:target {
+            display: block; /* Show the targeted section */
+        }
+
+        /* Featured Games Section */
+        .featured-section {
+            padding: 4rem 0;
+        }
+
+        .featured-section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 3rem;
+            color: #D7798B; /* Pink Text */
+        }
+
+        .game-card {
+            background-color: #3D1C51; /* Dark Lavender */
+            border-radius: 10px;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img-top {
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .rating {
+            color: #FFD700; /* Gold color for stars */
+            margin-bottom: 15px;
+        }
+
+        .rating .fa-star {
+            margin-right: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3D1C51; /* Dark Lavender */
+            padding: 40px 0;
+            color: #D7798B; /* Pink Text */
+            text-align: center;
+        }
+
+        .social-icons a {
+            color: #D7798B; /* Pink Icons */
+            margin: 0 15px;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #fff; /* Change color to white on hover */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 3rem;
+            }
+
+            .hero-section p {
+                font-size: 1.2rem;
+            }
+
+            .btn-custom {
+                font-size: 1rem;
+                padding: 8px 16px;
+            }
+
+            .featured-section h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">EpicGamingHub</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#home">Home</a>
+                        </li>
+                        <!-- Dropdown for Games -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="gamesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Games
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="gamesDropdown">
+                                <a class="dropdown-item" href="#games">Featured Games</a>
+                                <a class="dropdown-item" href="#top-games">Top Games</a>
+                                <a class="dropdown-item" href="#new-releases">New Releases</a>
+                            </div>
+                        </li>
+                        <!-- Dropdown for Reviews -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="reviewsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Reviews
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="reviewsDropdown">
+                                <a class="dropdown-item" href="#reviews">Latest Reviews</a>
+                                <a class="dropdown-item" href="#user-reviews">User Reviews</a>
+                            </div>
+                        </li>
+                        <!-- Dropdown for Live Streams -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="streamsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Live Streams
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="streamsDropdown">
+                                <a class="dropdown-item" href="#live-streams">Twitch Streams</a>
+                                <a class="dropdown-item" href="#youtube-streams">YouTube Streams</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="navbar-nav">
+                        <a href="#about" class="btn btn-custom">About Us</a>
+                        <a href="#contact" class="btn btn-custom">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Hero Section with Background Image -->
+    <section class="hero-section" data-aos="fade-up">
+        <div>
+            <h1>Welcome to Epic Gaming Hub</h1>
+            <p>Explore the latest games, live streams, and reviews</p>
+            <a href="#games" class="btn btn-custom" data-aos="fade-right">Get Started</a>
+            <a href="#games" class="btn btn-custom" data-aos="fade-right">Buy Now</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div id="main-content">
+        <!-- Home Section -->
+        <div id="home" class="content-section" data-aos="fade-up">
+            <h2>Welcome to Epic Gaming Hub!</h2>
+            <p>Explore the latest games, live streams, and reviews.</p>
+        </div>
+
+        <!-- Games Section -->
+        <div id="games" class="content-section" data-aos="fade-up">
+            <h2>Featured Games</h2>
+            <div class="row">
+                <div class="col-md-4" data-aos="zoom-in">
+                    <div class="game-card shadow">
+                        <img src="images/your-gta.jpg" alt="Game 1" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Grand Theft Auto</h3>
+                            <p class="card-text">Experience entertainment blockbusters, Grand Theft Auto V and GTA Online.</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more game cards similarly -->
+
+                <div class="col-md-4">
+                    <div class="game-card shadow">
+                        <img src="images/your-pubg.jpg" alt="Game 2" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Pubg Mobile</h3>
+                            <p class="card-text">Experience the thrill of battle in this epic shooter game.</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="game-card shadow">
+                        <img src="images/your-valorant.jpg" alt="Game 3" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Valorant</h3>
+                            <p class="card-text">Blend your style and experience on a global, competitive stage. You have 13 rounds to attack and defend your side using sharp gunplay and tactical abilities.</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="game-card shadow">
+                        <img src="images/your-call of duty.jpg" alt="Game 2" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">call Of Duty</h3>
+                            <p class="card-text">Call of Duty is a first-person shooter (FPS) video game franchise that includes story-driven campaigns, multiplayer, Zombies survival modes, and more...</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="game-card shadow">
+                        <img src="images/your-hogwarts.jpg" alt="Game 3" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Hogwarts</h3>
+                            <p class="card-text">Hogwarts School of Witchcraft and Wizardry is a magic school in the Scottish Highlands that is described as a huge, rambling castle with many towers and battlements...</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="game-card shadow">
+                        <img src="images/your-marvels.jpg" alt="Game 2" class="card-img-top">
+                        <div class="card-body">
+                            <h3 class="card-title">Marvel Future Fight</h3>
+                            <p class="card-text"> An epic blockbuster action-RPG featuring Super Heroes and Villains from the Marvel Universe!</p>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Other sections like Reviews, Live Streams, About, Contact can be added similarly with AOS attributes -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Epic Gaming Hub. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-twitch"></i></a>
+        </div>
+    </footer>
+
+    <!-- AOS Library JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // Animation duration
+            once: true,     // Whether animation should happen only once
+        });
+    </script>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
